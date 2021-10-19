@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .innerCard {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(173, 148, 233, 1) 62%);
+            height: 200px;
+            width: 300px;
+            margin: 10px;
+            border: 9px solid #A4699D;
+            border-radius: 23px 0px 25px 0px;
+            padding: 30px;
+
+        }
+
+        #phoneNo {
+            background-color: transparent;
+            border: 0px solid;
+        }
+
+        .btn {
+            -webkit-box-shadow: 5px 5px 15px 5px #000000;
+            box-shadow: 5px 5px 15px 5px #000000;
+            background-color : blueviolet;
+            margin: 20px;
+        }
+        #card{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    Name : <input name="name" type="text" placeholder="type your name " id="name" />
+    mobile No : <input name="mobileNo" type="number" placeholder="Type your Mobile No" id="mobileNo" />
+    <button id="submit">Submit</button>
+    <div id="card"></div>
+</body>
+<script type="text/javascript">
+    window.addEventListener("load", function () {
+        var btn = document.getElementById("submit");
+        btn.addEventListener("click", createCard)
+
+    })
+
+
+    function createCard() {
+        const name = document.getElementById("name").value;
+        const mobileNo = document.getElementById("mobileNo").value;
+        const card = document.getElementById("card");
+
+        const div = document.createElement("div");
+        div.className = "innerCard";
+        var incard = `<p>Name: ${name}</p>
+                    Mobile No. :  <input type="password" id="phoneNo" value="${mobileNo}"/>
+                    <input type="button" onclick="myFunction()" value="Show Password" class="btn">`;
+        div.innerHTML = incard;
+        card.append(div);
+        console.log(name)
+
+
+
+    }
+
+    function myFunction() {
+        var x = document.getElementById("phoneNo");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        console.log("hhhh")
+    }
+</script>
+
+</html>
